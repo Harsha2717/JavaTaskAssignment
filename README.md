@@ -24,10 +24,13 @@
 - `C:\Java\Annotation\src\main\java\AnnotationValidation\ControlLayer\EmployeeController.java` : Where the REST API Controller is Defined and the API'S
   
 ## EndPoints
-- `Employee/CreateEmployee` : To Create the Employe with the Required Parameters :
-- {
+- Employee/CreateEmployee : To Create the Employe with the Required Parameters :
+  {
     "id": "ID0001",
     "name": "Student"
   }
+
+- Employee/GetAllEmployees : To Retreive Every Employee From the Database
+  
 
 
