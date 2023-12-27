@@ -8,35 +8,38 @@ public class ValidNameImplementation implements ConstraintValidator<ValidName,St
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context)
   {
-    boolean isValid = !value.isEmpty() && !value.isBlank() && value.matches("^[A-Z][a-z]+");
-    if(!isValid) {
+    boolean isValid = !value.isEmpty() && value.matches("^[A-Z][a-z]+");
+    if(!isValid)
+    {
       context.disableDefaultConstraintViolation();
       if(value.length() > 10)
       {
-        context.buildConstraintViolationWithTemplate("Name Can't Exceed Greater than 15Characters").addConstraintViolation();
-        return false;
+        buildTemplate(context,"Name Can't Exceed Greater than 15Characters");
       }
       if(value.isBlank())
       {
-        context.buildConstraintViolationWithTemplate("Name can't be Blank").addConstraintViolation();
-        return false;
+        buildTemplate(context,"Name can't be Blank");
       }
       if(value.isEmpty())
       {
-        context.buildConstraintViolationWithTemplate("Name can't be Empty").addConstraintViolation();
-        return false;
+        buildTemplate(context,"Name can't be Empty");
       }
       if(value.substring(0,1).matches("^[a-z]"))
       {
-          context.buildConstraintViolationWithTemplate("Name Should Start with UpperCase Character").addConstraintViolation();
-          return false;
+          buildTemplate(context,"Name Should Start with UpperCase Character");
       }
       if(value.substring(0,1).matches("^[0-9]"))
       {
-        context.buildConstraintViolationWithTemplate("Name Shouldn't Start with Numbers").addConstraintViolation();
-        return false;
+        buildTemplate(context,"Name Shouldn't Start with Numbers");
       }
     }
     return isValid;
+  }
+
+  private boolean buildTemplate(ConstraintValidatorContext context,String message)
+  {
+    context.disableDefaultConstraintViolation();
+    context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
+    return false;
   }
 }
