@@ -22,6 +22,10 @@
 - `C:\Java\Annotation\src\main\java\AnnotationValidation\ServiceLayer\EmployeeService.java` : Service Layer where the Data is Stored into the Data Base {`MYSQL`}
 - `C:\Java\Annotation\src\main\java\AnnotationValidation\Annotations` : Custom Annotations are Stored inside this Package
 - `C:\Java\Annotation\src\main\java\AnnotationValidation\ControlLayer\EmployeeController.java` : Where the REST API Controller is Defined and the API'S
+
+## Running The Application
+  ```bash
+  # Navigate to the Project Path
   
 ## EndPoints
 - Employee/CreateEmployee : To Create the Employe with the Required Parameters :
@@ -31,6 +35,7 @@
   }
 
 - Employee/GetAllEmployees : To Retreive Every Employee From the Database
-  
+
+## 
 
 
