@@ -25,8 +25,12 @@
 
 ## Running The Application
   ```bash
-  # Navigate to the Project Path
-  
+  # Navigate to the Project Path in Command prompt
+    - cd C:/Java/Annotations
+  # Make Sure Maven is Installed
+  # Run the Project
+    mvn spring-boot:run
+  ```
 ## EndPoints
 - Employee/CreateEmployee : To Create the Employe with the Required Parameters :
   {
