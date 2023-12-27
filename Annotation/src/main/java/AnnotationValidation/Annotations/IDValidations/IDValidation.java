@@ -15,41 +15,39 @@ public class IDValidation implements ConstraintValidator<IDValidator,String>
       context.disableDefaultConstraintViolation();
       if(value.length() > 6)
       {
-        context.buildConstraintViolationWithTemplate("ID can't Exceed more than 6 characters").addConstraintViolation();
-        return false;
+        buildTemplate(context,"ID can't Exceed more than 6 characters");
       }
       if(value.length() < 3)
       {
-        context.buildConstraintViolationWithTemplate("ID Can't be less than 3 Characters").addConstraintViolation();
+        buildTemplate(context,"ID Can't be less than 3 Characters");
       }
       if(value.isEmpty())
       {
-        context.buildConstraintViolationWithTemplate("ID can't be Empty").addConstraintViolation();
-        return false;
+        buildTemplate(context,"ID can't be Empty");
       }
-
       if(value.isBlank())
       {
-        context.buildConstraintViolationWithTemplate("ID can't be Blank").addConstraintViolation();
-        return false;
+        buildTemplate(context,"ID can't be Blank");
       }
       if(value.substring(0,1).matches("^[a-z]") || value.substring(1,2).matches("^[a-z]"))
       {
-        context.buildConstraintViolationWithTemplate("ID must have 2Characters as UpperCase").addConstraintViolation();
-        return false;
+        buildTemplate(context,"ID must have 2Characters as UpperCase");
       }
       if(value.substring(0,1).matches("^[A-Z]") && value.substring(1,2).matches("^[0-9]"))
       {
-        context.buildConstraintViolationWithTemplate("ID must have 2 UpperCase Characters").addConstraintViolation();
-        return false;
+        buildTemplate(context,"ID Can only have 2Characters as UpperCase");
       }
       if(value.substring(0,1).matches("^[0-9]") ||value.substring(1,2).matches("^[0-9]"))
       {
-        context.buildConstraintViolationWithTemplate("ID Can't start with Numbers").addConstraintViolation();
-        return false;
+        buildTemplate(context,"ID Can't start with Numbers");
       }
-
     }
     return isValid;
+  }
+  private boolean buildTemplate(ConstraintValidatorContext context,String message)
+  {
+    context.disableDefaultConstraintViolation();
+    context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
+    return false;
   }
 }
