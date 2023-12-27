@@ -33,11 +33,12 @@
   ```
 ## EndPoints
 - Employee/CreateEmployee : To Create the Employe with the Required Parameters :
+```bash
   {
     "id": "ID0001",
     "name": "Student"
   }
-
+```
 - Employee/GetAllEmployees : To Retreive Every Employee From the Database
 
 ## 
